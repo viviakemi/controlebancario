@@ -1,0 +1,12 @@
+/AddBancoEvent.class
+/AddBancoEventHandler.class
+/BancoDeletedEvent.class
+/BancoDeletedEventHandler.class
+/BancoUpdatedEvent.class
+/BancoUpdatedEventHandler.class
+/EditBancoCancelledEvent.class
+/EditBancoCancelledEventHandler.class
+/EditBancoEvent.class
+/EditBancoEventHandler.class
+/MenuEvent.class
+/MenuEventHandler.class

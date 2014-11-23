@@ -1,0 +1,91 @@
+
+<!--
+ 
+    Sencha GXT 3.1.2 - Sencha for GWT
+    Copyright(c) 2007-2014, Sencha, Inc.
+    licensing@sencha.com
+ 
+    http://www.sencha.com/products/gxt/license/
+ 
+-->
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder
+    xmlns:ui='urn:ui:com.google.gwt.uibinder'
+    xmlns:gxt="urn:import:com.sencha.gxt.widget.core.client" 
+    xmlns:gxtcontainer="urn:import:com.sencha.gxt.widget.core.client.container"
+    xmlns:menu="urn:import:com.sencha.gxt.widget.core.client.menu">
+ 
+  <ui:style>
+    .margin {
+       margin: 10px;
+     }
+  </ui:style>
+   
+  <ui:with type="com.sencha.gxt.examples.resources.client.images.ExampleImages" field="images" />
+  <ui:with type="com.sencha.gxt.core.client.resources.ThemeStyles.Styles" field="styles" />
+ 
+  <gxt:ContentPanel headingText="MenuBar Example (UiBinder)" pixelSize="300, 50" addStyleNames="{style.margin}">
+    <gxtcontainer:NorthSouthContainer>
+      <gxtcontainer:north>
+        <menu:MenuBar borders="true" addStyleNames="{styles.borderBottom}">
+          <menu:MenuBarItem text="Cadastro">
+            <menu:menu>
+              <menu:Menu>
+                <menu:MenuItem text="Banco" ui:field="menuNew" icon="{images.table}"/>
+                <menu:MenuItem text="Agência">
+                  <menu:submenu>
+                    <menu:Menu ui:field="menuOpen">
+                      <menu:MenuItem text="Incluir" />
+                      <menu:MenuItem text="Listar" />
+                    </menu:Menu>
+                  </menu:submenu>
+                </menu:MenuItem>
+                <menu:MenuItem text="Conta" ui:field="menuConta"/>
+                <menu:MenuItem text="Cliente" ui:field="menuCliente"/>
+              </menu:Menu>
+            </menu:menu>
+          </menu:MenuBarItem>
+          <menu:MenuBarItem text="Transação">
+            <menu:menu>
+              <menu:Menu ui:field="menuEdit">
+                <menu:MenuItem text="Depósito" />
+                <menu:MenuItem text="Transferência" />
+              </menu:Menu>
+            </menu:menu>
+          </menu:MenuBarItem>
+          <menu:MenuBarItem text="Relatório">
+            <menu:menu>
+              <menu:Menu ui:field="menuSearch">
+                <menu:MenuItem text="Search" />
+                <menu:MenuItem text="File" />
+                <menu:MenuItem text="Java" />
+              </menu:Menu>
+            </menu:menu>
+          </menu:MenuBarItem>
+          <menu:MenuBarItem text="Foo">
+            <menu:menu>
+              <menu:Menu ui:field="menuFoo">
+                <menu:CheckMenuItem text="I Like Cats" checked="true" />
+                <menu:CheckMenuItem text="I Like Dogs" />
+                <menu:SeparatorMenuItem />
+                <menu:MenuItem text="Radio Options">
+                  <menu:submenu>
+                    <menu:Menu ui:field="menuTheme">
+                      <menu:CheckMenuItem text="Blue Theme" group="radios" checked="true" />
+                      <menu:CheckMenuItem text="Gray Theme" group="radios" />
+                    </menu:Menu>
+                  </menu:submenu>
+                </menu:MenuItem>
+                <menu:MenuItem text="Choose a Date" icon="{images.calendar}">
+                  <menu:submenu>
+                    <menu:DateMenu ui:field="dateMenu" />
+                  </menu:submenu>
+                </menu:MenuItem>
+              </menu:Menu>
+            </menu:menu>
+          </menu:MenuBarItem>
+        </menu:MenuBar>
+      </gxtcontainer:north>
+    </gxtcontainer:NorthSouthContainer>
+  </gxt:ContentPanel>
+</ui:UiBinder>
