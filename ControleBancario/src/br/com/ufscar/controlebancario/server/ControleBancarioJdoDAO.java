@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import br.com.ufscar.controlebancario.client.ControleBancarioDAO;
 import br.com.ufscar.controlebancario.server.util.HibernateUtil;
 import br.com.ufscar.controlebancario.shared.Banco;
+import br.com.ufscar.controlebancario.shared.Conta;
 
 public class ControleBancarioJdoDAO implements ControleBancarioDAO{
 
@@ -42,6 +43,24 @@ public class ControleBancarioJdoDAO implements ControleBancarioDAO{
 		
 		session.getTransaction().commit();
 		return bancos;
+	}
+
+	@Override
+	public void addConta(Conta conta) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+	    session.beginTransaction();
+	    session.saveOrUpdate(conta);
+	    session.getTransaction().commit();
+	}
+
+	@Override
+	public List<Conta> listConta() {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		List<Conta> contas = new ArrayList<Conta>(session.createQuery("from Conta").list());
+		
+		session.getTransaction().commit();
+		return contas;
 	}
 
 }

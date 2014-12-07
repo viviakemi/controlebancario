@@ -11,9 +11,13 @@ import br.com.ufscar.controlebancario.client.event.EditBancoEventHandler;
 import br.com.ufscar.controlebancario.client.event.MenuEvent;
 import br.com.ufscar.controlebancario.client.event.MenuEventHandler;
 import br.com.ufscar.controlebancario.client.presenter.BancoPresenter;
+import br.com.ufscar.controlebancario.client.presenter.ContaPresenter;
+import br.com.ufscar.controlebancario.client.presenter.ContaIncluirPresenter;
 import br.com.ufscar.controlebancario.client.presenter.MainPresenter;
 import br.com.ufscar.controlebancario.client.presenter.Presenter;
 import br.com.ufscar.controlebancario.client.view.BancoView;
+import br.com.ufscar.controlebancario.client.view.ContaView;
+import br.com.ufscar.controlebancario.client.view.ContaIncluirView;
 import br.com.ufscar.controlebancario.client.view.MainView;
 import br.com.ufscar.controlebancario.shared.Constantes;
 
@@ -40,7 +44,7 @@ public class AppController implements Presenter, ValueChangeHandler<String> {
 		eventBus.addHandler(AddBancoEvent.TYPE,
 				new AddBancoEventHandler() {
 			public void onAddBanco(AddBancoEvent event) {
-				doAddNewContact();
+				doAddNewBanco();
 			}
 		});  
 
@@ -53,15 +57,15 @@ public class AppController implements Presenter, ValueChangeHandler<String> {
 
 		eventBus.addHandler(EditBancoCancelledEvent.TYPE,
 				new EditBancoCancelledEventHandler() {
-			public void onEditContactCancelled(EditBancoCancelledEvent event) {
-				doEditContactCancelled();
+			public void onEditBancoCancelled(EditBancoCancelledEvent event) {
+				doEditBancoCancelled();
 			}
 		});  
 
 		eventBus.addHandler(BancoUpdatedEvent.TYPE,
 				new BancoUpdatedEventHandler() {
-			public void onContactUpdated(BancoUpdatedEvent event) {
-				doContactUpdated();
+			public void onBancoUpdated(BancoUpdatedEvent event) {
+				doBancoUpdated();
 			}
 		});  
 
@@ -73,7 +77,7 @@ public class AppController implements Presenter, ValueChangeHandler<String> {
 		});  
 	}
 
-	private void doAddNewContact() {
+	private void doAddNewBanco() {
 		History.newItem("add");
 	}
 
@@ -83,11 +87,11 @@ public class AppController implements Presenter, ValueChangeHandler<String> {
 		// presenter.go(container);
 	}
 
-	private void doEditContactCancelled() {
+	private void doEditBancoCancelled() {
 		History.newItem("list");
 	}
 
-	private void doContactUpdated() {
+	private void doBancoUpdated() {
 		History.newItem("list");
 	}
 
@@ -116,8 +120,12 @@ public class AppController implements Presenter, ValueChangeHandler<String> {
 
 			if (token.equals(Constantes.MENU)){
 				presenter = new MainPresenter(rpcService, eventBus, new MainView());
-			}if (token.equals(Constantes.MENU_ITEM_BANCO)){
+			}else if (token.equals(Constantes.MENU_ITEM_BANCO)){
 				presenter = new BancoPresenter(rpcService, eventBus, new BancoView());
+			}else if (token.equals(Constantes.MENU_ITEM_CONTA)){
+				presenter = new ContaPresenter(rpcService, eventBus, new ContaView());
+			}else if (token.equals(Constantes.MENU_ITEM_INCLUIR_CONTA)){
+				presenter = new ContaIncluirPresenter(rpcService, eventBus, new ContaIncluirView());
 			}
 
 			if (presenter != null) {

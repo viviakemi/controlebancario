@@ -12,6 +12,6 @@ public class EditBancoCancelledEvent extends GwtEvent<EditBancoCancelledEventHan
 
   @Override
   protected void dispatch(EditBancoCancelledEventHandler handler) {
-    handler.onEditContactCancelled(this);
+    handler.onEditBancoCancelled(this);
   }
 }

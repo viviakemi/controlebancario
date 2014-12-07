@@ -22,6 +22,6 @@ public class BancoUpdatedEvent extends GwtEvent<BancoUpdatedEventHandler>{
 
   @Override
   protected void dispatch(BancoUpdatedEventHandler handler) {
-    handler.onContactUpdated(this);
+    handler.onBancoUpdated(this);
   }
 }

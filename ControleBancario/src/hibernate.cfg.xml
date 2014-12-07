@@ -33,6 +33,8 @@
 
 
 		<mapping resource="br/com/ufscar/controlebancario/shared/Banco.hbm.xml"/>
+		<mapping resource="br/com/ufscar/controlebancario/shared/Conta.hbm.xml"/>
+		<mapping resource="br/com/ufscar/controlebancario/shared/ContaCliente.hbm.xml"/>
     </session-factory>
 
 </hibernate-configuration>

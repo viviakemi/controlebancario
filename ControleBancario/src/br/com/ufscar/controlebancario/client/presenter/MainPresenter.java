@@ -4,6 +4,7 @@ import java.util.Date;
 
 import br.com.ufscar.controlebancario.client.ControleBancarioServiceAsync;
 import br.com.ufscar.controlebancario.client.event.MenuEvent;
+import br.com.ufscar.controlebancario.client.view.AdvancedToolBar;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.logical.shared.SelectionEvent;
@@ -48,6 +49,7 @@ public class MainPresenter implements Presenter, IsWidget{
 		container.clear();
 		container.add(display.asWidget());	
 		container.add(asWidget());
+		container.add(new AdvancedToolBar().asWidget());
 	}
 
 	
