@@ -1,0 +1,2 @@
+serviceClass: br.com.ufscar.controlebancario.client.ControleBancarioService
+path: 7586351DAF7E4D5B452F3FF5DCC08475.gwt.rpc

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="br.com.ufscar.controlebancario.shared.Conta" table="CONTA">
+        <id name="idConta" column="idConta">
+            <generator class="identity"/>
+        </id>
+        <property name="tipoConta" column="tipoConta"/>
+        <property name="numero" column="numero"/>
+        <property name="dataAbertura" column="dataAbertura"/>
+        <property name="saldo" column="saldo"/>
+        <set name="contaCliente" table="contacliente" 
+				inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="idConta"/>
+            </key>
+            <one-to-many class="br.com.ufscar.controlebancario.shared.ContaCliente" />
+        </set>
+    </class>
+</hibernate-mapping>
