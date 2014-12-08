@@ -96,4 +96,18 @@ public class ControleBancarioJdoDAO implements ControleBancarioDAO{
 		return contas2;
 	}
 
+	@Override
+	public void removeConta(Conta conta) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+	    session.beginTransaction();
+	    Set<ContaCliente> contaCliente = conta.getContaCliente();
+	    Iterator<ContaCliente> i = contaCliente.iterator();
+	    while(i.hasNext()){
+	    	session.delete(i.next());
+	    }
+	    session.delete(conta);
+	    session.getTransaction().commit();
+		
+	}
+
 }

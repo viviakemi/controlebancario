@@ -21,4 +21,6 @@ public interface ControleBancarioServiceAsync {
 
 	void listConta(AsyncCallback<List<Conta>> callback);
 
+	void removeConta(Conta conta, AsyncCallback<Void> callback);
+
 }

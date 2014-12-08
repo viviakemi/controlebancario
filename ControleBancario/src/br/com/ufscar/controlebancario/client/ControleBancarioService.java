@@ -18,4 +18,5 @@ public interface ControleBancarioService extends RemoteService {
 	
 	void addConta(Conta conta);
 	List<Conta> listConta();
+	void removeConta(Conta conta);
 }

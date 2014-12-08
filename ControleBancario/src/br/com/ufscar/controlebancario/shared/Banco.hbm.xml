@@ -6,7 +6,7 @@
 <hibernate-mapping>
     <class name="br.com.ufscar.controlebancario.shared.Banco" table="BANCO">
         <id name="codigo" column="CODIGO">
-            <!-- generator class="native"/>-->
+            <generator class="identity"/>
         </id>
         <property name="nome" column="NOME"/>
         <property name="cnpj" column="CNPJ"/>

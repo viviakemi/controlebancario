@@ -44,5 +44,11 @@ public class ControleBancarioServiceImpl extends RemoteServiceServlet implements
 	public List<Conta> listConta() {
 		return bancoDAO.listConta();
 	}
+
+
+	@Override
+	public void removeConta(Conta conta) {
+		bancoDAO.removeConta(conta);
+	}
  
 }
