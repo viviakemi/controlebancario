@@ -91,10 +91,10 @@ public class BancoPresenter implements Presenter{
 			@Override
 	        public void onSelect(SelectEvent event) {
 	          Banco banco = new Banco();
-	          banco.setCodigo(display.getGrid().getStore().size() + 1);
+	          //banco.setCodigo(display.getGrid().getStore().size() + 1);
 	          GridRowEditing<Banco> editing = display.getGridEditing();
 	          editing.cancelEditing();
-	          display.getGrid().getStore().add(1,banco);
+	          display.getGrid().getStore().add(banco);
 	 
 	          int row =  display.getGrid().getStore().indexOf(banco);
 	          editing.startEditing(new GridCell(row, 0));
