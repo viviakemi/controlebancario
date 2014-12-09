@@ -2,6 +2,7 @@ package br.com.ufscar.controlebancario.server;
 
 import java.util.List;
 
+import br.com.ufscar.controlebancario.shared.Agencia;
 import br.com.ufscar.controlebancario.shared.Banco;
 import br.com.ufscar.controlebancario.shared.Conta;
 import br.com.ufscar.controlebancario.client.ControleBancarioDAO;
@@ -49,6 +50,32 @@ public class ControleBancarioServiceImpl extends RemoteServiceServlet implements
 	@Override
 	public void removeConta(Conta conta) {
 		bancoDAO.removeConta(conta);
+	}
+
+
+	@Override
+	public void removeAgencia(Agencia agencia) {
+		bancoDAO.removeAgencia(agencia);		
+	}
+
+
+	@Override
+	public void addAgencia(Agencia agencia) {
+		bancoDAO.addAgencia(agencia);
+		
+	}
+
+
+	@Override
+	public List<Agencia> listAgencia() {
+		return bancoDAO.listAgencia();
+	}
+
+
+	@Override
+	public void updateAgencia(Agencia agencia) {
+		bancoDAO.updateAgencia(agencia);
+		
 	}
  
 }

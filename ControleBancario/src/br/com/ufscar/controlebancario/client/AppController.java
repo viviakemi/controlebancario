@@ -11,11 +11,13 @@ import br.com.ufscar.controlebancario.client.event.EditBancoEventHandler;
 import br.com.ufscar.controlebancario.client.event.MenuEvent;
 import br.com.ufscar.controlebancario.client.event.MenuEventHandler;
 import br.com.ufscar.controlebancario.client.presenter.BancoPresenter;
+import br.com.ufscar.controlebancario.client.presenter.AgenciaPresenter;
 import br.com.ufscar.controlebancario.client.presenter.ContaPresenter;
 import br.com.ufscar.controlebancario.client.presenter.ContaIncluirPresenter;
 import br.com.ufscar.controlebancario.client.presenter.MainPresenter;
 import br.com.ufscar.controlebancario.client.presenter.Presenter;
 import br.com.ufscar.controlebancario.client.view.BancoView;
+import br.com.ufscar.controlebancario.client.view.AgenciaView;
 import br.com.ufscar.controlebancario.client.view.ContaView;
 import br.com.ufscar.controlebancario.client.view.ContaIncluirView;
 import br.com.ufscar.controlebancario.client.view.MainView;
@@ -126,6 +128,8 @@ public class AppController implements Presenter, ValueChangeHandler<String> {
 				presenter = new ContaPresenter(rpcService, eventBus, new ContaView());
 			}else if (token.equals(Constantes.MENU_ITEM_INCLUIR_CONTA)){
 				presenter = new ContaIncluirPresenter(rpcService, eventBus, new ContaIncluirView());
+			}else if (token.equals(Constantes.MENU_ITEM_AGENCIA)){
+				presenter = new AgenciaPresenter(rpcService, eventBus, new AgenciaView());
 			}
 
 			if (presenter != null) {

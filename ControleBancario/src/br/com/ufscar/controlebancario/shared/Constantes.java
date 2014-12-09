@@ -6,4 +6,5 @@ public interface Constantes {
 	String MENU_ITEM_BANCO = "Banco";
 	String MENU_ITEM_CONTA = "Conta";
 	String MENU_ITEM_INCLUIR_CONTA = "IncluirConta";
+	String MENU_ITEM_AGENCIA = "Agencia";
 }

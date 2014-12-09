@@ -12,6 +12,7 @@ import org.hibernate.Session;
 
 import br.com.ufscar.controlebancario.client.ControleBancarioDAO;
 import br.com.ufscar.controlebancario.server.util.HibernateUtil;
+import br.com.ufscar.controlebancario.shared.Agencia;
 import br.com.ufscar.controlebancario.shared.Banco;
 import br.com.ufscar.controlebancario.shared.Conta;
 import br.com.ufscar.controlebancario.shared.ContaCliente;
@@ -109,5 +110,43 @@ public class ControleBancarioJdoDAO implements ControleBancarioDAO{
 	    session.getTransaction().commit();
 		
 	}
+
+	@Override
+	public void addAgencia(Agencia agencia) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+	    session.beginTransaction();
+	    session.saveOrUpdate(agencia);
+	    session.getTransaction().commit();
+		
+	}
+
+	@Override
+	public void removeAgencia(Agencia agencia) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+	    session.beginTransaction();
+	    session.delete(agencia);
+	    session.getTransaction().commit();		
+	}
+
+	@Override
+	public void updateAgencia(Agencia agencia) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Agencia> listAgencia() {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		
+		String hql = "FROM Agencia ";
+		org.hibernate.Query query = session.createQuery(hql);
+		List<Agencia> agencias = query.list();
+		
+		session.getTransaction().commit();
+		return agencias;
+	}
+
+	
 
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="br.com.ufscar.controlebancario.shared.Agencia" table="AGENCIA">
+        <id name="idAgencia" column="IDAGENCIA">
+            <generator class="identity"/>
+        </id>
+        <property name="nome" column="NOME"/>
+        <property name="numero" column="NUMERO"/>
+        <property name="bancoCodigo" column="BANCOCODIGO"/>
+    </class>
+</hibernate-mapping>

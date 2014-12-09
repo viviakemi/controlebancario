@@ -32,14 +32,8 @@
             <menu:menu>
               <menu:Menu>
                 <menu:MenuItem text="Banco" ui:field="menuNew" icon="{images.table}"/>
-                <menu:MenuItem text="Agência">
-                  <menu:submenu>
-                    <menu:Menu ui:field="menuOpen">
-                      <menu:MenuItem text="Incluir" />
-                      <menu:MenuItem text="Listar" />
-                    </menu:Menu>
-                  </menu:submenu>
-                </menu:MenuItem>
+                <menu:MenuItem text="Agencia" ui:field="menuOpen"/>
+                
                 <menu:MenuItem text="Conta" ui:field="menuConta"/>
                 <menu:MenuItem text="Cliente" ui:field="menuCliente"/>
               </menu:Menu>
